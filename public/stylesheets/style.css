@@ -76,14 +76,21 @@ input {
   min-height: 100vh;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 15px;
   background: #f2f2f2;  
 }
-
-.wrap-login100 {
-  /* width: 390px; */
+/* .alt{
+  top: 5px;
+  width: 50%;
+}
+.alt-main{
+  display: flex;
+  justify-content: center;
+} */
+.wrap-login100  {
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -96,6 +103,18 @@ input {
   -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
+ .wrap-signup100 {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 77px 55px 33px 55px;
+
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+}
 
 
 
@@ -137,8 +156,11 @@ input {
   padding: 0 5px;
 }
 
-.wrap-login100{
+/* .wrap-login100{
   width: 390px;
+} */
+.wrap-signup100{
+  width: 490px;
 }
 @media screen and (min-width: 480px) {
   /* .wrap-login100{
@@ -191,3 +213,31 @@ input {
   margin-top: 10px;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10rem;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #393838;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
+
+.main-404{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  flex-direction: column;
+}

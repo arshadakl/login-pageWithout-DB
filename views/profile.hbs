@@ -1,33 +1,4 @@
-<header>
-    <nav class="navbar bg-dark text-white py-4">
-        <div class="container-fluid">
-            <a class="navbar-brand px-5 text-white fs-4"><img style="width: 30px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Apple_logo_white.svg/800px-Apple_logo_white.svg.png" alt=""></a>
-            <form class="d-flex" role="search">
-                <div class="dropdown">
-                    <button class="btn btn-outline-light dropdown-toggle mx-5" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        {{#if user}}
-                        {{user.name}}
-                        {{else}}
-                        Account
-                        {{/if}}
-                    </button>
-                    <ul class="dropdown-menu ">
-                        <li>
-                            {{#if user}}
-                            <a class="dropdown-item" href="profile">Profile</a>
-                            <a class="dropdown-item" href="logout">Logout</a>
-                            {{else}}
-                            <a class="dropdown-item" href="login">Login</a>
-                            {{/if}}
-                        </li>
-                    </ul>
-                </div>
-            </form>
-        </div>
-    </nav>
 
-</header>
 <section class="h-75">
     <div class="container-fluid">
         <div class="container pt-5">
@@ -42,10 +13,3 @@
         </div>
     </div>
 </section>
-<footer>
-    <div class="container-fluid footer-area bg-dark">
-        <div class="container">
-            <p class="text-center text-light p-4 fw-lighter">Apple store</p>
-        </div>
-    </div>
-</footer>

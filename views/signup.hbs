@@ -1,0 +1,64 @@
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-signup100 pb-5">
+            
+            <form class="login100-form " id="signup-form" method="post" action="/signup">
+            
+                <span class="login100-form-title p-b-26 mb-4">
+                    Create New Account
+                </span>
+                <span class="login100-form-title p-b-48">
+                    <i class="zmdi zmdi-font"></i>
+                </span>
+                
+
+                <div class="wrap-input100 ">
+                    <input class="input100" placeholder="User Name" type="text" id="userName" name="userName" required>
+                </div>
+
+                <div class="wrap-input100 ">
+                    <input class="input100" placeholder="Email" type="email" id="email" name="email" required>
+                </div>
+
+                <div class="wrap-input100">
+
+                    <input class="input100" placeholder="Create Password" type="password" id="pass" name="pass"
+                        required>
+                </div>
+                <div class="wrap-input100">
+
+                    <input class="input100" placeholder="Confirm Password" type="password" id="confPass" name="confPass"
+                        required>
+                </div>
+
+                <div class="log-bt-area text-center">
+
+                    <button class="login-bt">SignUp</button>
+
+                </div>
+            </form>
+            {{!-- {{#if loginErr}}
+            <p class="text-danger err text-center">invalid Email or Password</p>
+            {{/if}} --}}
+
+           
+
+            <p id="username-error"></p>
+            <h1 class=" text-center fs-6"><a class="text-dark" href="/login">Already have an account</a></h1>
+
+
+        </div>
+
+    </div>
+
+</div>
+ {{#if signErr}}
+    <div id="myAlert" data-aos="fade-down" class="alert alert-warning alert-dismissible fade show fs-6 fixed-top alt text-center" role="alert">
+    <strong>Uh-oh!</strong>Your account already exists, please use email and password to login.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+ {{/if}}
+
+
+    
+
+

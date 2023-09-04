@@ -1,0 +1,82 @@
+<div class="container font-monospace ">
+    <div class=" pb-5 d-flex justify-content-center">
+        <div class="card col-md-8 col-sm-12 mt-5 ">
+            <div class="card-body h-100 ">
+                <div class="dash-header  ">
+
+                    <div class="card ">
+                        <div class="card-body dash-box">
+                            <div>
+                                <h1 class="fs-4">Edit User</h1>
+                                {{!-- <div class="form-text">Account Open on :{{userInfo.createDate}}</div> --}}
+                            </div>
+
+                            <button data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                class="shadow btn btn-dark  ">Change Password</button>
+                        </div>
+                    </div>
+                    <div class="card w-100">
+                        <div class="card-body  d-flex justify-content-center mb-4">
+                            {{!-- form st --}}
+
+
+                            <div class="col-11 ">
+                                <form   method="post" action="/admin/dashboard/change-info/{{userInfo._id}}">
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">User Name</label>
+                                        <input type="text" class="form-control" name="userName" value="{{userInfo.userName}}"
+                                            id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                        <input type="email" class="form-control" value="{{userInfo.email}}"
+                                            id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+                                    </div>
+                                    <a href="/admin/dashboard" class="btn btn-dark">Not Now</a>
+                                    <button type="submit" class="btn btn-outline-dark">Update Now</button>
+                                </form>
+                            </div>
+                            {{!-- form end --}}
+                        </div>
+
+                    </div>
+
+
+
+                    {{!-- --}}
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{!-- pass change model --}}
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered font-monospace">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Change Password</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {{!-- ... --}}
+                <form method="post" action="/admin/dashboard/change-pass/{{userInfo._id}}">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label  ">Set New Password</label>
+                            <input type="text" class="form-control" name="pass" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a type="menu" class="btn btn-outline-dark  " data-bs-dismiss="modal">Close</a>
+                        <button type="submit" class="btn btn-dark  ">Change Now</button>
+                    </div>
+                </form>
+                {{!-- --}}
+            </div>
+        </div>
+    </div>
+</div>

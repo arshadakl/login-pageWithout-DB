@@ -1,0 +1,25 @@
+<header class="font-monospace">
+    <nav class="navbar bg-dark text-white py-4">
+        <div class="container-fluid">
+            <a class="navbar-brand px-5 text-white fs-4">Admin Dashboard</a>
+            <form class="d-flex" role="search">
+                <div class="dropdown">
+                    <button class="btn btn-outline-light dropdown-toggle mx-5" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        {{#if admin}}
+                        {{admin.userName}}
+                        {{else}}
+                        Account
+                        {{/if}}
+                    </button>
+                    <ul class="dropdown-menu ">
+                        <li>
+                            <a class="dropdown-item" href="/admin/logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </nav>
+
+</header>

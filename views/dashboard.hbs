@@ -1,0 +1,192 @@
+<section class="font-monospace">
+  <div class="container">
+    <div class="container-fluid pb-5">
+      <div class="card col-12 mt-5 ">
+        <div class="card-body h-100 ">
+          <div class="dash-header  ">
+
+            <div class="card ">
+              <div class="card-body dash-box">
+                <h1 class="fs-4  ">Users Details</h1>
+                <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="shadow btn btn-dark  ">+ Add
+                  user</button>
+              </div>
+            </div>
+            {{!-- search ba --}}
+            <div class="card ">
+              <div class="card-body dash-box d-flex justify-content-start">
+                <form class="d-flex col-12 " role="search" action="/admin/dashboard/search" method="get">
+                  <input class="form-control me-2" name="key" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-dark col-2" type="submit"><i class="bi bi-search"></i> Search</button>
+                </form>
+              </div>
+            </div>
+            {{!-- search end --}}
+
+
+            {{!-- user Details --}}
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">User Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Account Opened On</th>
+                  <th scope="col" class="text-center">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each users}}
+                <tr>
+                  <th scope="row">{{userName}}</th>
+                  <td>{{email}}</td>
+                  <td>{{createDate}}</td>
+                  <td class="text-center">
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#{{_id}}" class="btn btn-dark">Delete
+                      User</button>
+                    <a type="button" href="/admin/dashboard/edit-user/{{_id}}" class="btn btn-outline-dark">Edit</a>
+                  </td>
+                </tr>
+
+                {{!-- delete model --}}
+                <div class="modal fade" id="{{_id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5  " id="exampleModalLabel">Are you sure you want to
+                          delete this user?</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="modal-body">
+                          <p class=" ">user :{{userName}}</p>
+                          <p class=" ">email : {{email}}</p>
+
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                        <a type="button" href="/admin/dashboard/delete/{{_id}}" class="btn btn-outline-dark">Delete
+                          now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {{!-- model end --}}
+
+                {{/each}}
+              </tbody>
+            </table>
+
+            {{!-- --}}
+
+          </div>
+          {{!-- no user Font message hereeee..... --}}
+          {{#if users}}
+          {{else}}
+          <div class="card">
+            <div class="card-body p-5">
+
+              <p class="text-center fs-4"> <i class="bi bi-search"></i> NO User Found</p>
+            </div>
+          </div>
+          {{/if}}
+          {{!-- user not fount end here.. --}}
+        </div>
+      </div>
+    </div>
+    {{!-- <div class="alert alert-success" role="alert">
+      A simple success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+    </div> --}}
+  </div>
+
+  {{!-- <footer>
+    <div class="container-fluid footer-area bg-dark">
+      <div class="container">
+        <p class="text-center text-light p-4 fw-lighter">Apple store</p>
+      </div>
+    </div>
+  </footer> --}}
+
+  <!-- Button trigger modal -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-4  " id="exampleModalLabel">Add New User</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form method="post" action="/admin/adduser">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label  ">User Name</label>
+              <input type="text" class="form-control" id="recipient-name" name="userName" required>
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label  ">Email</label>
+              <input type="text" class="form-control" id="recipient-name" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label  ">Password</label>
+              <input type="text" class="form-control" id="recipient-name" name="pass" required>
+            </div>
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="menu" class="btn btn-outline-dark  " data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-dark  ">+ Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+ {{#if adminSignErr}}
+    <div id="myAlert" data-aos="fade-down" class="alert alert-warning alert-dismissible fade show fs-6 fixed-top alt text-center" role="alert">
+    <strong>Uh-oh!</strong>This account already exists.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+ {{/if}}
+
+
+  {{!-- model sample --}}
+
+  <!-- Button trigger modal -->
+  {{!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button> --}}
+
+  <!-- Modal -->
+{{#if newUserAlert}}
+  <div id="myAlert" data-aos="fade-up" class="alert alert-success col-3 fixed-bottom " style="left: 20px; bottom:10px" role="alert">
+  <h4 class="alert-heading fs-5">User Successfully Added!</h4>
+  <p class="fs-6 form-text">Congratulations, a new user has been added...</p>
+</div>
+{{/if}}
+
+{{#if deleteUserAlert}}
+  <div id="myAlert" data-aos="fade-up" class="alert alert-warning col-3 fixed-bottom " style="left: 20px; bottom:10px" role="alert">
+  <h4 class="alert-heading fs-5">User Successfully Deleted</h4>
+  <p class="fs-6 form-text">The user has been successfully deleted...</p>
+</div>
+{{/if}}
+
+{{#if editUserAlert}}
+  <div id="myAlert" data-aos="fade-up" class="alert alert-success col-3 fixed-bottom " style="left: 20px; bottom:10px" role="alert">
+  <h4 class="alert-heading fs-5">User Details Updated</h4>
+  <p class="fs-6 form-text">The user's information has been successfully updated.</p>
+</div>
+{{/if}}
+
+{{#if passUpdateAlert}} 
+  <div id="myAlert" data-aos="fade-up" class="alert alert-success col-3 fixed-bottom " style="left: 20px; bottom:10px" role="alert">
+  <h4 class="alert-heading fs-5">Password Successfully Updated</h4>
+  <p class="fs-6 form-text">The user's password has been successfully updated.</p>
+</div>
+{{/if}}
+

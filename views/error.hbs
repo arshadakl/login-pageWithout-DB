@@ -1,3 +1,25 @@
-<h1>{{message}}</h1>
+{{!-- <h1>{{message}}</h1>
 <h2>{{error.status}}</h2>
-<pre>{{error.stack}}</pre>
+<pre>{{error.stack}}</pre> --}}
+<div class="container">
+    <div class="container-fluid">
+        <div class="main-404 font-monospace">
+            <h1 class="display-2 text-center"><i class="bi bi-search"></i></h1>
+            <h1 class="display-1 text-secondary">404</h1>
+            <h1 class="fs-2 text-secondary">There's NOTHING here</h1>
+
+            
+            <div class="card">
+                <div class="card-body">
+                    {{!-- err messages --}}
+            <div class="form-text">{{message}}</div>
+            <div class="form-text">{{error.status}}</div>
+            <div class="form-text">{{error.stack}}</div>
+
+            {{!-- err messages --}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
